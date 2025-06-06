@@ -13,5 +13,16 @@ def create_app():
     app.register_blueprint(user_logs_bp)
     app.register_blueprint(service_logs_bp)
 
+    @app.route('/')
+    def index():
+        return (
+            "LAN Logs Broadcaster API is running.<br>"
+            "Available endpoints:<br>"
+            "/systemlogs/<br>"
+            "/errorlogs/<br>"
+            "/kernellogs/<br>"
+            "/userlogs/<br>"
+            "/servicelogs/?service=SERVICE_NAME<br>"
+        )
 
     return app
